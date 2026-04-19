@@ -107,3 +107,18 @@ Each job application contains:
 ## Author
 
 Haydara Massa
+
+
+## Screenshots
+
+### Authentication
+![Login](./Login.png)
+![Registration](./registration.png)
+
+### Dashboard
+![Dashboard](./Dashboard.png)
+![Dashboard 2](./Dashboard2.png)
+
+### Job Actions
+![Edit Application](./EditApplication.png)
+![Delete Confirmation](./Delete.png)
