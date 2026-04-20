@@ -136,17 +136,25 @@ Each job application contains:
 ## Author
 
 Haydara Massa
-
 ## Screenshots
 
-### Authentication
+### Login
 ![Login](./Login.png)
+
+### Registration
 ![Registration](./registration.png)
 
-### Dashboard
-![Dashboard](./Dashboard.png)
-![Dashboard 2](./Dashboard2.png)
+### Dashboard Overview
+![Dashboard Overview](./Dashboard1.png)
 
-### Job Actions
-![Edit Application](./EditApplication.png)
-![Delete Confirmation](./Delete.png)
+### Dashboard - Job Management
+![Dashboard Job Management](./Dashboard2.png)
+
+### Dashboard - Jobs List
+![Dashboard Jobs List](./Dashboard3.png)
+
+### Kanban Board
+![Kanban Board](./KanbanBoard.png)
+
+### Analytics
+![Analytics](./Analytics.png)
