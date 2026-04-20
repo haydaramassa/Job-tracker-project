@@ -39,8 +39,15 @@ public class JobApplicationService {
         existingJob.setCompany(updatedJob.getCompany());
         existingJob.setPosition(updatedJob.getPosition());
         existingJob.setStatus(updatedJob.getStatus());
+        existingJob.setPriority(updatedJob.getPriority());
+        existingJob.setSource(updatedJob.getSource());
+        existingJob.setCompanyLink(updatedJob.getCompanyLink());
         existingJob.setDateApplied(updatedJob.getDateApplied());
+        existingJob.setInterviewDate(updatedJob.getInterviewDate());
+        existingJob.setFollowUpDate(updatedJob.getFollowUpDate());
         existingJob.setNotes(updatedJob.getNotes());
+        existingJob.setFavorite(updatedJob.isFavorite());
+        existingJob.setArchived(updatedJob.isArchived());
 
         return repository.save(existingJob);
     }
