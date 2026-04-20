@@ -1,8 +1,10 @@
 # Job Tracker Project
 
-> **Status:** This project is still under development.
 
-A full-stack web application for tracking job applications in a clean and organized way.
+> **Status:** This project is still under development, but the core features are implemented and working.
+
+A full-stack web application for tracking job applications in a clean, organized, and professional way.
+
 
 ## Features
 
@@ -27,7 +29,9 @@ A full-stack web application for tracking job applications in a clean and organi
 - JavaScript
 - CSS
 - Vite
+- React Router DOM
 
+  
 ### Backend
 - Java
 - Spring Boot
@@ -48,8 +52,15 @@ job-tracker-project
 ├── job-tracker-backend
 └── job-tracker-frontend
 ```
+## Pages
 
+- Authentication Page
+- Dashboard Page
+- Job Details Page
+- Kanban Board Page
+- Analytics Page
 
+## Authentication
 
 The project includes:
 
@@ -67,6 +78,8 @@ Each logged-in user can:
 - View only their own jobs
 - Edit their own jobs
 - Delete their own jobs
+- Mark jobs as favorite
+- Archive and unarchive jobs
 
 ## Job Fields
 
@@ -75,7 +88,12 @@ Each job application contains:
 - Company
 - Position
 - Status
+- Priority
+- Source
+- Company Link
 - Date Applied
+- Interview Date
+- Follow Up Date
 - Notes
 
 ## Status Options
@@ -87,27 +105,37 @@ Each job application contains:
 
 ## UI Features
 
-- Modern login/register page
-- Dashboard cards
+- Sidebar navigation
+- Dashboard summary cards
 - Search and filter section
+- Sort options
 - Styled job cards
 - Color-coded status badges
+- Priority badges
+- Scroll to top button
 - Friendly validation messages
+- Empty states
+- Notes preview
+
+## Dashboard Widgets
+
+- Upcoming Interviews
+- Upcoming Follow-ups
+- Overdue Follow-ups
+- Recent Activity
 
 ## Future Improvements
 
-- Docker support
-- Better backend validation
 - JWT authentication
-- User-specific authorization improvements
-- Pagination
-- Sorting options
-- Improved dashboard charts
+- Better backend validation
+- Email reminders
+- Drag and drop Kanban
+- Deployment
+- Docker support after Windows update
 
 ## Author
 
 Haydara Massa
-
 
 ## Screenshots
 
