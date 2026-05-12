@@ -14,9 +14,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins(
+                        .allowedOriginPatterns(
                                 "http://localhost:5173",
-                                "https://haydara-job-tracker-demo.netlify.app"
+                                "https://haydara-job-tracker-demo.netlify.app",
+                                "https://*.netlify.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
