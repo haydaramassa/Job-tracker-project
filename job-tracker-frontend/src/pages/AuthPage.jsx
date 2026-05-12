@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { API_BASE_URL } from '../api/config'
 
-function AuthPage() {
+function AuthPage({ onLogin }) {
   const navigate = useNavigate()
 
   const [authMode, setAuthMode] = useState('login')
@@ -117,7 +117,13 @@ function AuthPage() {
       }
 
       const loggedInUser = await response.json()
+
       localStorage.setItem('jobTrackerUser', JSON.stringify(loggedInUser))
+
+      if (onLogin) {
+        onLogin(loggedInUser)
+      }
+
       navigate('/dashboard')
     } catch (err) {
       setAuthError('Invalid email or password. Please try again.')
