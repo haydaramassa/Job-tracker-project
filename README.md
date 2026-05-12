@@ -4,11 +4,11 @@ A full-stack web application for tracking job applications in a clean, organized
 
 ## Live Demo
 
-Try the project here:
-
 [Open Live Demo](https://haydara-job-tracker-demo.netlify.app)
 
-You can create a new account directly from the Register page and start testing the app.
+> Note: The backend is hosted on Render free tier.  
+> The first login or registration request may take 30–60 seconds if the server is sleeping.  
+> If you see a temporary error, wait a moment and try again.
 
 ---
 
