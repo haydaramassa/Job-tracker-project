@@ -1,57 +1,90 @@
 # Job Tracker Project
 
-
-> **Status:** This project is still under development, but the core features are implemented and working.
-
 A full-stack web application for tracking job applications in a clean, organized, and professional way.
 
+## Live Demo
+
+Try the project here:
+
+[Open Live Demo](https://haydara-job-tracker-demo.netlify.app)
+
+You can create a new account directly from the Register page and start testing the app.
+
+---
+
+## Project Status
+
+The project is deployed and the core features are working.
+
+Current production setup:
+
+- Frontend: React / Vite deployed on Netlify
+- Backend: Spring Boot deployed on Render
+- API routing: Netlify proxy redirects `/api/*` requests to the Render backend
+
+---
 
 ## Features
 
 - User registration
 - User login
 - Password strength validation
-- Logout confirmation
-- Add new job applications
-- View all job applications
+- Local user session using `localStorage`
+- Add job applications
+- View job applications by logged-in user
 - Edit job applications
 - Delete job applications
+- Mark jobs as favorite
+- Archive and unarchive jobs
 - Search by company or position
-- Filter by status
+- Filter by status and priority
+- Sort job applications
 - Dashboard statistics
-- Jobs linked to the logged-in user
+- Kanban board
+- Analytics page
 - Responsive and clean UI
 
-## Technologies Used
+---
+
+## Tech Stack
 
 ### Frontend
+
 - React
+- Vite
 - JavaScript
 - CSS
-- Vite
 - React Router DOM
 
-  
 ### Backend
+
 - Java
 - Spring Boot
 - Spring Data JPA
 - Spring Security Crypto
 
 ### Database
-- MySQL
 
-### Build Tools
-- Gradle
-- npm
+- MySQL
+- H2 used in development/demo configuration
+
+### Deployment
+
+- Netlify for frontend hosting
+- Render for backend hosting
+- Netlify proxy redirects for API requests
+
+---
 
 ## Project Structure
 
-```text
+```txt
 job-tracker-project
 ├── job-tracker-backend
 └── job-tracker-frontend
+ذ
 ```
+
 ## Pages
 
 - Authentication Page
@@ -60,26 +93,34 @@ job-tracker-project
 - Kanban Board Page
 - Analytics Page
 
+---
+
 ## Authentication
 
-The project includes:
+The application includes:
 
 - Register
 - Login
 - Password validation
 - Password strength feedback
-- Local user session with localStorage
+- Session persistence with `localStorage`
+
+After a successful login, the user is redirected to the dashboard.
+
+---
 
 ## Job Management
 
 Each logged-in user can:
 
-- Create jobs
+- Create job applications
 - View only their own jobs
 - Edit their own jobs
 - Delete their own jobs
 - Mark jobs as favorite
 - Archive and unarchive jobs
+
+---
 
 ## Job Fields
 
@@ -96,12 +137,16 @@ Each job application contains:
 - Follow Up Date
 - Notes
 
+---
+
 ## Status Options
 
 - Applied
 - Interview
 - Accepted
 - Rejected
+
+---
 
 ## UI Features
 
@@ -112,10 +157,12 @@ Each job application contains:
 - Styled job cards
 - Color-coded status badges
 - Priority badges
-- Scroll to top button
+- Scroll-to-top button
 - Friendly validation messages
 - Empty states
 - Notes preview
+
+---
 
 ## Dashboard Widgets
 
@@ -124,37 +171,69 @@ Each job application contains:
 - Overdue Follow-ups
 - Recent Activity
 
+---
+
+## API Proxy Setup
+
+The frontend uses a Netlify proxy so the browser calls:
+
+```txt
+/api/auth/register
+/api/auth/login
+```
+
+Netlify redirects these requests to the backend on Render:
+
+```txt
+https://job-tracker-backend-gftl.onrender.com
+```
+
+This avoids CORS issues in production.
+
+---
+
+## Screenshots
+
+### Login Page
+
+![Login Page](./Login.png)
+
+### Registration Page
+
+![Registration Page](./registration.png)
+
+### Dashboard
+
+![Dashboard 1](./Dashboard1.png)
+
+![Dashboard 2](./Dashboard2.png)
+
+![Dashboard 3](./Dashboard3.png)
+
+### Analytics
+
+![Analytics](./Analytics.png)
+
+### Kanban Board
+
+![Kanban Board](./KanbanBoard.png)
+
+---
+
 ## Future Improvements
 
 - JWT authentication
 - Better backend validation
 - Email reminders
-- Drag and drop Kanban
-- Deployment
-- Docker support after Windows update
+- Drag-and-drop Kanban board
+- Docker support
+- Persistent production database improvements
+- Better error messages for login and registration
+
+---
 
 ## Author
 
-Haydara Massa
-## Screenshots
+**Haydara Massa**
 
-### Login
-![Login](./Login.png)
-
-### Registration
-![Registration](./registration.png)
-
-### Dashboard Overview
-![Dashboard Overview](./Dashboard1.png)
-
-### Dashboard - Job Management
-![Dashboard Job Management](./Dashboard2.png)
-
-### Dashboard - Jobs List
-![Dashboard Jobs List](./Dashboard3.png)
-
-### Kanban Board
-![Kanban Board](./KanbanBoard.png)
-
-### Analytics
-![Analytics](./Analytics.png)
+GitHub: [@haydaramassa](https://github.com/haydaramassa)
