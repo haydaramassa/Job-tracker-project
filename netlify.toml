@@ -1,7 +1,6 @@
 [build]
-base = "job-tracker-frontend"
-command = "npm run build"
-publish = "dist"
+command = "cd job-tracker-frontend && npm run build"
+publish = "job-tracker-frontend/dist"
 
 [[redirects]]
 from = "/api/auth/register"
