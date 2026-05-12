@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import AuthPage from './pages/AuthPage'
 import DashboardPage from './pages/DashboardPage'
@@ -7,13 +8,15 @@ import AnalyticsPage from './pages/AnalyticsPage'
 import './App.css'
 
 function App() {
-  const savedUser = localStorage.getItem('jobTrackerUser')
-  const user = savedUser ? JSON.parse(savedUser) : null
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('jobTrackerUser')
+    return savedUser ? JSON.parse(savedUser) : null
+  })
 
   return (
     <Routes>
       <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Navigate to="/auth" />} />
-      <Route path="/auth" element={<AuthPage />} />
+      <Route path="/auth" element={<AuthPage onLogin={setUser} />} />
       <Route
         path="/dashboard"
         element={user ? <DashboardPage user={user} /> : <Navigate to="/auth" />}

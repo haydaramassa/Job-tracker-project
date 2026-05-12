@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import Sidebar from '../components/Sidebar'
+import { API_BASE_URL } from '../api/config'
 
 function AnalyticsPage({ user }) {
   const [jobs, setJobs] = useState([])
@@ -9,7 +10,7 @@ function AnalyticsPage({ user }) {
   }, [])
 
   const loadJobs = async () => {
-    const response = await fetch(`http://localhost:8080/jobs/${user.id}`)
+    const response = await fetch(`${API_BASE_URL}/jobs/${user.id}`)
     const data = await response.json()
     setJobs(data)
   }
