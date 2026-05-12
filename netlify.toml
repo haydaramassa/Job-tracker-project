@@ -1,0 +1,26 @@
+[build]
+command = "cd job-tracker-frontend && npm run build"
+publish = "job-tracker-frontend/dist"
+
+[[redirects]]
+from = "/api/auth/register"
+to = "https://job-tracker-backend-gftl.onrender.com/auth/register"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/auth/login"
+to = "https://job-tracker-backend-gftl.onrender.com/auth/login"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/*"
+to = "https://job-tracker-backend-gftl.onrender.com/:splat"
+status = 200
+force = true
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

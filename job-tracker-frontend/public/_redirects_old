@@ -1,0 +1,4 @@
+/api/auth/register  https://job-tracker-backend-gft1.onrender.com/auth/register  200!
+/api/auth/login  https://job-tracker-backend-gft1.onrender.com/auth/login  200!
+/api/*  https://job-tracker-backend-gft1.onrender.com/:splat  200!
+/*  /index.html  200

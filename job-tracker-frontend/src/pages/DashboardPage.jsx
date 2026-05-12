@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
+import { API_BASE_URL } from '../api/config'
 
 function DashboardPage({ user }) {
   const [jobs, setJobs] = useState([])
@@ -39,7 +40,7 @@ function DashboardPage({ user }) {
   }, [])
 
   const loadJobs = async () => {
-    const response = await fetch(`http://localhost:8080/jobs/${user.id}`)
+    const response = await fetch(`${API_BASE_URL}/jobs/${user.id}`)
     const data = await response.json()
     setJobs(data)
   }
@@ -104,13 +105,13 @@ function DashboardPage({ user }) {
     setError('')
 
     if (editingId) {
-      await fetch(`http://localhost:8080/jobs/${user.id}/${editingId}`, {
+      await fetch(`${API_BASE_URL}/jobs/${user.id}/${editingId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       })
     } else {
-      await fetch(`http://localhost:8080/jobs/${user.id}`, {
+      await fetch(`${API_BASE_URL}/jobs/${user.id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -125,7 +126,7 @@ function DashboardPage({ user }) {
     const confirmed = window.confirm('Are you sure you want to delete this job?')
     if (!confirmed) return
 
-    await fetch(`http://localhost:8080/jobs/${user.id}/${id}`, {
+    await fetch(`${API_BASE_URL}/jobs/${user.id}/${id}`, {
       method: 'DELETE'
     })
 
@@ -153,7 +154,7 @@ function DashboardPage({ user }) {
   }
 
   const handleQuickUpdate = async (job, updates) => {
-    const response = await fetch(`http://localhost:8080/jobs/${user.id}/${job.id}`, {
+    const response = await fetch(`${API_BASE_URL}/jobs/${user.id}/${job.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

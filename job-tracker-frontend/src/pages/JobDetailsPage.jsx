@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { API_BASE_URL } from '../api/config'
 
 function JobDetailsPage({ user }) {
   const { id } = useParams()
@@ -12,7 +13,7 @@ function JobDetailsPage({ user }) {
   }, [id])
 
   const loadJob = async () => {
-    const response = await fetch(`http://localhost:8080/jobs/${user.id}`)
+    const response = await fetch(`${API_BASE_URL}/jobs/${user.id}`)
     const data = await response.json()
     const selectedJob = data.find((item) => String(item.id) === String(id))
     setJob(selectedJob || null)
@@ -23,7 +24,7 @@ function JobDetailsPage({ user }) {
     const confirmed = window.confirm('Are you sure you want to delete this job?')
     if (!confirmed) return
 
-    await fetch(`http://localhost:8080/jobs/${user.id}/${id}`, {
+    await fetch(`${API_BASE_URL}/jobs/${user.id}/${id}`, {
       method: 'DELETE'
     })
 
@@ -31,7 +32,7 @@ function JobDetailsPage({ user }) {
   }
 
   const handleQuickUpdate = async (updates) => {
-    const response = await fetch(`http://localhost:8080/jobs/${user.id}/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/jobs/${user.id}/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

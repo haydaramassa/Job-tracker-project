@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_BASE_URL } from '../api/config'
 
-function AuthPage() {
+function AuthPage({ onLogin }) {
   const navigate = useNavigate()
 
   const [authMode, setAuthMode] = useState('login')
@@ -69,7 +70,7 @@ function AuthPage() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/auth/register', {
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(authData)
@@ -102,7 +103,7 @@ function AuthPage() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/auth/login', {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -116,7 +117,13 @@ function AuthPage() {
       }
 
       const loggedInUser = await response.json()
+
       localStorage.setItem('jobTrackerUser', JSON.stringify(loggedInUser))
+
+      if (onLogin) {
+        onLogin(loggedInUser)
+      }
+
       navigate('/dashboard')
     } catch (err) {
       setAuthError('Invalid email or password. Please try again.')
